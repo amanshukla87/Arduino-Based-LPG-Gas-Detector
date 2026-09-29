@@ -19,7 +19,6 @@ The system reads the analog output of the gas sensor and compares the reading wi
 - Piezo buzzer
 - Green LED
 - Red LED
-- Current-limiting resistors for LEDs
 - Jumper wires and breadboard
 
 ## Pin Configuration
