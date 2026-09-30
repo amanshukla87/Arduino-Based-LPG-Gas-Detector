@@ -1,5 +1,4 @@
-# Arduino-Based LPG Gas Detector
-
+# Arduino-Based LPG Gas Detector 
 An Arduino-based LPG/combustible gas detection project using an MQ-series gas sensor, status LEDs, a buzzer, and serial monitoring.
 
 ## Overview
