@@ -37,7 +37,25 @@ The system reads the analog output of the gas sensor and compares the reading wi
 3. The reading is compared with the configured threshold (`300` in the current code).
 4. If the reading exceeds the threshold, the alarm state is activated.
 5. Otherwise, the system remains in the safe state.
-6. The sensor value is continuously displayed through the Serial Monitor at **9600 baud**.
+6. The sensor value is continuously displayed through the **Serial Monitor at 9600 baud**.
+
+## Hardware Setup
+
+### Setup Views
+
+<p align="center">
+  <img src="images/mq6-lpg-gas-detector-hardware-setup.jpeg" width="45%" alt="MQ-6 LPG gas detector hardware setup">
+  <img src="images/mq6-lpg-gas-detector-hardware-setup-angle-02.jpeg" width="45%" alt="MQ-6 LPG gas detector hardware setup angle 02">
+</p>
+
+Additional hardware setup views are documented in the `images/` folder.
+
+## Testing
+
+Testing photos and project media are organized in the repository for documenting the hardware and working setup.
+
+- Hardware images: `images/`
+- Project videos: `video/`
 
 ## Code
 
