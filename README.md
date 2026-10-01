@@ -1,26 +1,32 @@
-# Arduino-Based LPG Gas Detector 
-An Arduino-based LPG/combustible gas detection project using an MQ-series gas sensor, status LEDs, a buzzer, and serial monitoring.
+# Arduino-Based LPG Gas Detector
 
-## Overview
+A simple Arduino-based project for detecting LPG/combustible gas using an MQ-series gas sensor. The system gives a visual and audible alert when the sensor reading crosses a preset threshold.
 
-The system reads the analog output of the gas sensor and compares the reading with a configurable threshold.
+## About the Project
 
-- **Safe condition:** Green LED ON, red LED OFF, buzzer OFF
-- **Alert condition:** Red LED ON, green LED OFF, buzzer ON
-- **Serial monitoring:** Sensor reading is printed at 9600 baud
+This project was built to understand the basic working of an MQ gas sensor with Arduino and to implement a simple gas-alert system.
 
-> **Note:** The current implementation uses an analog threshold. The sensor value is not converted directly to LPG concentration (ppm), and the threshold should be calibrated experimentally for the particular sensor and environment.
+The sensor provides an analog output, which is read by the Arduino through **A0**. The reading is compared with a threshold value. Depending on the reading, the system stays in a safe state or activates the alarm.
 
-## Hardware
+### System response
+
+- **Safe condition:** Green LED ON, Red LED OFF, Buzzer OFF
+- **Alert condition:** Red LED ON, Green LED OFF, Buzzer ON
+- **Serial Monitor:** Sensor reading displayed at **9600 baud**
+
+> **Note:** This project uses a threshold-based detection method. The sensor reading is not converted into an actual LPG concentration in ppm. The threshold should be calibrated for the particular sensor, hardware setup, and environment.
+
+## Components Used
 
 - Arduino board
-- MQ-2/MQ-6 gas sensor module
-- Piezo buzzer
-- Green LED
+- MQ-6 / MQ-series gas sensor module
 - Red LED
-- Jumper wires and breadboard
+- Green LED
+- Piezo buzzer
+- Breadboard
+- Jumper wires
 
-## Pin Configuration
+## Pin Connections
 
 | Component | Arduino Pin |
 |---|---|
@@ -29,58 +35,73 @@ The system reads the analog output of the gas sensor and compares the reading wi
 | Green LED | D9 |
 | Red LED | D10 |
 
-## Working
+## How It Works
 
-1. The gas sensor provides an analog reading through **A0**.
-2. Arduino reads the sensor using `analogRead()`.
-3. The reading is compared with the configured threshold (`300` in the current code).
-4. If the reading exceeds the threshold, the alarm state is activated.
-5. Otherwise, the system remains in the safe state.
-6. The sensor value is continuously displayed through the **Serial Monitor at 9600 baud**.
+1. The MQ gas sensor produces an analog signal based on the detected gas level.
+2. Arduino reads this signal from **A0** using `analogRead()`.
+3. The sensor value is compared with the threshold set in the Arduino code.
+4. If the value is above the threshold, the alarm condition is activated.
+5. The red LED turns ON and the buzzer sounds.
+6. If the value remains below the threshold, the green LED stays ON.
+7. The sensor value is continuously sent to the Serial Monitor at **9600 baud**.
+
+The current code uses a threshold value of **300**. This value is a project-level setting and can be changed after testing and calibration.
 
 ## Hardware Setup
 
-### Setup Views
+### Project Setup
 
 <p align="center">
   <img src="images/mq6-lpg-gas-detector-hardware-setup.jpeg" width="45%" alt="MQ-6 LPG gas detector hardware setup">
   <img src="images/mq6-lpg-gas-detector-hardware-setup-angle-02.jpeg" width="45%" alt="MQ-6 LPG gas detector hardware setup angle 02">
 </p>
 
-Additional hardware setup views are documented in the `images/` folder.
+More hardware photos are available in the **images/** folder.
 
 ## Testing
 
-Testing photos and project media are organized in the repository for documenting the hardware and working setup.
+The project was tested using the assembled hardware setup and Serial Monitor.
 
-- Hardware images: `images/`
-- Project videos: `video/`
+Project media is organized as follows:
+
+- **Hardware photos:** `images/`
+- **Testing videos:** `video/`
 
 ## Code
 
-Main Arduino sketch:
+The Arduino sketch is available here:
 
 `code/LPG_Gas_Detector.ino`
 
 ## Project Documentation
 
-- `documentation/Arduino-Based-LPG-Gas-Detector-Report.pdf` — project report
+The complete project report is available in:
+
+`documentation/Arduino-Based-LPG-Gas-Detector-Report.pdf`
 
 ## Limitations
 
-- The threshold is a project-level configurable value and should not be treated as a certified gas-safety limit.
-- MQ-series sensors require appropriate warm-up and calibration for reliable measurements.
-- The current code reports raw analog sensor values rather than calibrated gas concentration.
+- The system uses a simple analog threshold and is not a certified gas-safety device.
+- MQ-series sensors need proper warm-up and calibration for consistent readings.
+- The current implementation displays raw analog sensor values rather than calibrated LPG concentration.
+- Sensor readings can vary with the environment and the particular sensor module.
 
-## Future Improvements
+## Possible Improvements
 
-- Add a startup warm-up/calibration routine.
-- Add an LCD/OLED display for local status and sensor readings.
-- Add data logging for sensor trends.
-- Add a calibrated concentration-estimation method where appropriate.
-- Add a relay/exhaust-control interface with suitable electrical isolation and safety precautions.
+Some improvements that could be added in a future version:
+
+- Add an automatic sensor warm-up and calibration routine.
+- Add an LCD or OLED to display the sensor value and alarm status.
+- Store sensor readings for later analysis.
+- Add a more suitable concentration-estimation method after proper calibration.
+- Add a relay or exhaust-control interface with appropriate electrical isolation and safety precautions.
 
 ## Author
 
-**Aman Shukla**  
-Government Polytechnic Saharanpur
+**Aman Shukla**
+
+Electronics Engineering | Embedded Systems & Sensors
+
+---
+
+This project is part of my hands-on work with **Arduino, sensors, embedded C/C++, and basic hardware interfacing**.
